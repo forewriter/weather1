@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="uk-UA">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+ 
+ <link rel="stylesheet" href="./flags/favicon.ico">
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.5.1/dist/leaflet.css">
+
+<script src="https://unpkg.com/leaflet@1.5.1/dist/leaflet.js"></script>
+<title>Прогноз погоди 5 днів</title>
+</head>
+<body id="B">
+<div id="p_prldr"><div class="contpre"><span class="svg_anm"></span></div></div>
+
+
+
+<div class="jumbotron">
+    <h2  style="font-size:18px !important;">Місцевий час та дата</h2>
+	<p>Сьогодні: <strong><span id="date"></span></strong></p>
+    <p id="timeOuT">Поточний час: <strong><span id="time"></span></strong></p>
+
+ <h2 >Погода</h2>
+      
+        
+</div>
+
+<div class="left">
+<div id="pole">
+<h2>Введіть назву міста</h2>
+ <p>Наприклад: <span style="color:rgb(128, 0, 0); font-size:16px;">Kharkiv-Харків-Харьков, Kyiv-Київ-Киев, Tokio-Токіо-Токио, ...</span></p>
+ <input type="text" value="" id="city" placeholder="Введіть назву міста ..."/>
+ <button id="cityB" onclick="showDateTime();">OK</button>
+
+
+<div class="text-center" style="width:99%;margin-left:; background-color: blueviolet;"><span id="OUT1">Ви обрали: </span><span id="selected"></span><br><em><span id="selected2"></span><span id="adress"></span></em><br><span id="OUT11">Прогноз на 5 днів</span><br><span id="cityC"></span></div>
+	<div id="tablo">
+        <div class="day">
+			<img src="" id="tmp24"/><br>
+		   <p id="day21">В даний час</p>
+		   <div><span id="demo27"></span></div>
+		   <div><span id="demo125"></span></div>
+		   <div><span id="demo26"></span></div>
+		   <div><span id="demo24"></span></div>
+	  </div>	
+		<div class="day">
+			  <img id="tmp4"/><br>
+			  <div id="demo71"></div>
+			 <p id="day1"></p>
+
+			 <div  id="demo5"></div>
+			 <div  id="demo6"></div>
+			 <div id="outW">00:00<span id="demo172"></span><img id="tmp111"/></div>
+			 <div id="outW">03:00<span id="demo173"></span><img id="tmp112"/></div>
+			 <div id="outW">06:00<span id="demo174"></span><img id="tmp113"/></div>
+			 <div id="outW">09:00<span id="demo175"></span><img id="tmp114"/></div>
+			 <div id="outW">12:00<span id="demo176"></span><img id="tmp115"/></div>
+			 <div id="outW">15:00<span id="demo177"></span><img id="tmp116"/></div>
+			 <div id="outW">18:00<span id="demo178"></span><img id="tmp117"/></div>
+			 <div id="outW">21:00<span id="demo179"></span><img id="tmp118"/></div>
+		</div>
+
+		<div class="day">
+			   <img id="tmp5"/><br>
+			    <div id="demo72"></div>
+			 <p id="day2"></p>
+			 <div id="demo10"></div>
+			 <div id="demo11"></div>
+			 <div id="outW">00:00<span id="demo141"></span><img id="tmp121"/></div>
+			 <div id="outW">03:00<span id="demo142"></span><img id="tmp122"/></div>
+			 <div id="outW">06:00<span id="demo143"></span><img id="tmp123"/></div>
+			 <div id="outW">09:00<span id="demo144"></span><img id="tmp124"/></div>
+			 <div id="outW">12:00<span id="demo145"></span><img id="tmp125"/></div>
+			 <div id="outW">15:00<span id="demo146"></span><img id="tmp126"/></div>
+			 <div id="outW">18:00<span id="demo147"></span><img id="tmp127"/></div>
+			 <div id="outW">21:00<span id="demo148"></span><img id="tmp128"/></div>
+		</div>
+
+		<div class="day">
+			   <img id="tmp6"/><br>
+			   <div id="demo73"></div>
+			 <p id="day3"></p>
+			 <div id="demo14"></div>
+			 <div id="demo15"></div>
+			 <div id="outW">00:00<span id="demo151"></span><img id="tmp131"/></div>
+			 <div id="outW">03:00<span id="demo152"></span><img id="tmp132"/></div>
+			 <div id="outW">06:00<span id="demo153"></span><img id="tmp133"/></div>
+			 <div id="outW">09:00<span id="demo154"></span><img id="tmp134"/></div>
+			 <div id="outW">12:00<span id="demo155"></span><img id="tmp135"/></div>
+			 <div id="outW">15:00<span id="demo156"></span><img id="tmp136"/></div>
+			 <div id="outW">18:00<span id="demo157"></span><img id="tmp137"/></div>
+			 <div id="outW">21:00<span id="demo158"></span><img id="tmp138"/></div>
+		</div>
+
+		<div class="day">
+			  <img id="tmp7"/><br>
+			  <div id="demo74"></div>
+			 <p id="day4"></p>
+			 <div id="demo18"></div>
+			 <div id="demo19"></div>
+			 <div id="outW">00:00<span id="demo161"></span><img id="tmp181"/></div>
+			 <div id="outW">03:00<span id="demo162"></span><img id="tmp182"/></div>
+			 <div id="outW">06:00<span id="demo163"></span><img id="tmp183"/></div>
+			 <div id="outW">09:00<span id="demo164"></span><img id="tmp184"/></div>
+			 <div id="outW">12:00<span id="demo165"></span><img id="tmp185"/></div>
+			 <div id="outW">15:00<span id="demo166"></span><img id="tmp186"/></div>
+			 <div id="outW">18:00<span id="demo167"></span><img id="tmp187"/></div>
+			 <div id="outW">21:00<span id="demo168"></span><img id="tmp188"/></div>
+		</div>
+
+<
+<script src="https://code.jquery.com/jquery-1.11.1.min.js"></script>
+<script src="script.js"></script>
+<script src="canvas.js"></script>
+
+<script>
+$( ".select3" ).click(function(){
+	    $( "li").slideToggle('fast');
+	  });
+</script>
+</body>
+</html>
